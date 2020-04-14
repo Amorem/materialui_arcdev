@@ -7,6 +7,8 @@ import Tab from "@material-ui/core/Tab";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 import logo from "../../assets/logo.svg";
 
@@ -26,6 +28,12 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
     marginBottom: "2em",
   },
+  logoContainer: {
+    padding: 0,
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
   logo: {
     height: "7em",
   },
@@ -44,14 +52,36 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "50px",
     height: "45px",
   },
-  logoContainer: {
-    padding: 0,
+  menu: {
+    backgroundColor: theme.palette.common.blue,
+    color: "white",
+    borderRadius: 0,
+  },
+  menuItem: {
+    ...theme.typography.tab,
+    opacity: 0.7,
+    "&:hover": {
+      opacity: 1,
+    },
   },
 }));
 
 export default function Header(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget);
+    setOpen(true);
+  };
+
+  const handleClose = (e) => {
+    setAnchorEl(null);
+    setOpen(false);
+  };
+
   useEffect(() => {
     if (window.location.pathname === "/" && value !== 0) {
       setValue(0);
@@ -73,6 +103,7 @@ export default function Header(props) {
         <AppBar>
           <Toolbar disableGutters>
             <Button
+              disableRipple
               component={Link}
               to="/"
               className={classes.logoContainer}
@@ -93,8 +124,11 @@ export default function Header(props) {
                 label="Home"
               />
               <Tab
+                aria-owns={anchorEl ? "simple-menu" : undefined}
+                aria-haspopup={anchorEl ? true : undefined}
                 className={classes.tab}
                 component={Link}
+                onMouseOver={(event) => handleClick(event)}
                 to="/services"
                 label="Services"
               />
@@ -124,6 +158,60 @@ export default function Header(props) {
             >
               Free Estimate
             </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{ onMouseLeave: handleClose }}
+              classes={{ paper: classes.menu }}
+              elevation={0}
+            >
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+                component={Link}
+                to="/services"
+                classes={{ root: classes.menuItem }}
+              >
+                Services
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+                component={Link}
+                to="/software"
+                classes={{ root: classes.menuItem }}
+              >
+                Custom Software Development
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+                component={Link}
+                to="/mobileapps"
+                classes={{ root: classes.menuItem }}
+              >
+                Mobile App Development
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+                component={Link}
+                to="/websites"
+                classes={{ root: classes.menuItem }}
+              >
+                Websites Development
+              </MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
