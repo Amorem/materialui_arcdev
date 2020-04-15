@@ -11,6 +11,9 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import MenuIcon from "@material-ui/icons/Menu";
+import IconButton from "@material-ui/core/IconButton";
 
 import logo from "../../assets/logo.svg";
 
@@ -87,17 +90,20 @@ export default function Header(props) {
 
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
-    setOpen(true);
+    setOpenMenu(true);
   };
 
   const handleClose = (e) => {
     setAnchorEl(null);
-    setOpen(false);
+    setOpenMenu(false);
   };
 
   const menuOptions = [
@@ -109,7 +115,7 @@ export default function Header(props) {
 
   const handleMenuItemClick = (event, index) => {
     setAnchorEl(null);
-    setOpen(false);
+    setOpenMenu(false);
     setSelectedIndex(index);
   };
 
@@ -218,7 +224,7 @@ export default function Header(props) {
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
-        open={open}
+        open={openMenu}
         onClose={handleClose}
         MenuListProps={{ onMouseLeave: handleClose }}
         classes={{ paper: classes.menu }}
@@ -244,6 +250,23 @@ export default function Header(props) {
     </>
   );
 
+  const drawer = (
+    <>
+      <SwipeableDrawer
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        onOpen={() => setOpenDrawer(true)}
+      >
+        Example Drawer
+      </SwipeableDrawer>
+      <IconButton onClick={() => setOpenDrawer(!openDrawer)} disableRipple>
+        <MenuIcon />
+      </IconButton>
+    </>
+  );
+
   return (
     <>
       <ElevationScroll>
@@ -258,7 +281,7 @@ export default function Header(props) {
             >
               <img className={classes.logo} src={logo} alt="company logo" />
             </Button>
-            {matches ? null : tabs}
+            {matches ? drawer : tabs}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
