@@ -106,7 +106,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.orange,
   },
   drawerItemSelected: {
-    opacity: 1,
+    "& .MuiListItemText-root": {
+      opacity: 1,
+    },
+  },
+  appbar: {
+    zIndex: theme.zIndex.modal + 1,
   },
 }));
 
@@ -203,6 +208,7 @@ export default function Header(props) {
       >
         {routes.map((route, index) => (
           <Tab
+            key={`${route}${index}`}
             className={classes.tab}
             component={Link}
             to={route.link}
@@ -230,10 +236,12 @@ export default function Header(props) {
         MenuListProps={{ onMouseLeave: handleClose }}
         classes={{ paper: classes.menu }}
         elevation={0}
+        style={{ zIndex: 1302 }}
+        keepMounted
       >
         {menuOptions.map((option, index) => (
           <MenuItem
-            key={option.link}
+            key={`${option.link}${index}`}
             component={Link}
             to={option.link}
             classes={{ root: classes.menuItem }}
@@ -261,9 +269,11 @@ export default function Header(props) {
         onClose={() => setOpenDrawer(false)}
         onOpen={() => setOpenDrawer(true)}
       >
+        <div className={classes.toolbarMargin} />
         <List disablePadding>
           {routes.map((route) => (
             <ListItem
+              key={`${route}${route.activeIndex}`}
               divider
               button
               component={Link}
@@ -273,22 +283,19 @@ export default function Header(props) {
                 setOpenDrawer(false);
                 setValue(route.activeIndex);
               }}
+              classes={{ selected: classes.drawerItemSelected }}
             >
-              <ListItemText
-                className={
-                  value === route.activeIndex
-                    ? [classes.drawerItem, classes.drawerItemSelected]
-                    : classes.drawerItem
-                }
-                disableTypography
-              >
+              <ListItemText className={classes.drawerItem} disableTypography>
                 {route.name}
               </ListItemText>
             </ListItem>
           ))}
 
           <ListItem
-            className={[classes.drawerItem, classes.drawerItemEstimate]}
+            classes={{
+              root: classes.drawerItem,
+              selected: classes.drawerItemSelected,
+            }}
             onClick={() => {
               setOpenDrawer(false);
               setValue(5);
@@ -316,7 +323,7 @@ export default function Header(props) {
   return (
     <>
       <ElevationScroll>
-        <AppBar>
+        <AppBar position="fixed" className={classes.appbar}>
           <Toolbar disableGutters>
             <Button
               disableRipple
