@@ -10,6 +10,7 @@ import ButtonArrow from "./UI/ButtonArrow";
 import animationData from "../animations/landinganimation/data";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
+import websitesIcon from "../assets/websiteIcon.svg";
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -221,7 +222,7 @@ export default function LandingPage() {
         </Grid>
       </Grid>
       <Grid item>
-        {/*----- Services Block -----*/}
+        {/*----- Websites Block -----*/}
         <Grid
           container
           direction="row"
@@ -235,13 +236,12 @@ export default function LandingPage() {
               textAlign: matchesSM ? "center" : undefined,
             }}
           >
-            <Typography variant="h4">Custom Software Development</Typography>
+            <Typography variant="h4">Websites Development</Typography>
             <Typography variant="subtitle1" className={classes.subtitle}>
-              Save Energy. Save Time. Save Money.
+              Reach more. Discover more. Sell more.
             </Typography>
             <Typography variant="subtitle1">
-              Complete digital solution, from investigation to {}
-              <span className={classes.specialText}>celebration.</span>
+              Optimized for Search Engines, built for speed.
             </Typography>
             <Button variant="outlined" className={classes.learnButton}>
               <span style={{ marginRight: 10 }}> Learn more</span>
@@ -254,8 +254,8 @@ export default function LandingPage() {
           </Grid>
           <Grid item>
             <img
-              alt="Custom Software Icon"
-              src={customSoftwareIcon}
+              alt="Websites Icon"
+              src={websitesIcon}
               className={classes.icon}
             />
           </Grid>
