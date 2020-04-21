@@ -109,7 +109,7 @@ export default function Footer(props) {
                 }}
                 className={classes.link}
               >
-                Mobile App Developement
+                iOS/Android App Developement
               </Grid>
               <Grid
                 item
