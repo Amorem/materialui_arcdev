@@ -2,18 +2,19 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 const amoremBlue = "#0B72B9";
 const amoremOrange = "#FFBA60";
+const amoremGrey = "#868686";
 
 export default createMuiTheme({
   palette: {
     common: {
-      blue: `${amoremBlue}`,
-      orange: `${amoremOrange}`,
+      blue: amoremBlue,
+      orange: amoremOrange,
     },
     primary: {
-      main: `${amoremBlue}`,
+      main: amoremBlue,
     },
     secondary: {
-      main: `${amoremOrange}`,
+      main: amoremOrange,
     },
   },
   typography: {
@@ -47,6 +48,20 @@ export default createMuiTheme({
       fontSize: "1.75rem",
       color: amoremBlue,
       fontWeight: 700,
+    },
+    subtitle1: {
+      fontSize: "1.5rem",
+      fontWeight: 300,
+      color: amoremGrey,
+    },
+    learnButton: {
+      borderColor: amoremBlue,
+      color: amoremBlue,
+      borderWidth: 2,
+      textTransform: "none",
+      borderRadius: 50,
+      fontFamily: "Roboto",
+      fontWeight: "bold",
     },
   },
 });
