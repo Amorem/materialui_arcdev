@@ -6,11 +6,14 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import ButtonArrow from "./UI/ButtonArrow";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 import animationData from "../animations/landinganimation/data";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
 import websitesIcon from "../assets/websiteIcon.svg";
+import revolutionBackground from "../assets/repeatingBackground.svg";
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -85,6 +88,20 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       padding: 25,
     },
+  },
+  revolutionBackground: {
+    backgroundImage: `url(${revolutionBackground})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100%",
+    width: "100%",
+  },
+  revolutionCard: {
+    position: "absolute",
+    boxShadow: theme.shadows[10],
+    borderRadius: 15,
+    padding: "10em",
   },
 }));
 
@@ -259,6 +276,46 @@ export default function LandingPage() {
               className={classes.icon}
             />
           </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <Grid
+          container
+          alignItems="center"
+          justify="center"
+          style={{ height: "100em" }}
+        >
+          <Card className={classes.revolutionCard}>
+            <CardContent>
+              <Grid
+                container
+                direction="column"
+                style={{ textAlign: "center" }}
+              >
+                <Grid item>
+                  <Typography variant="h3">The Revolution</Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant="subtitle1">
+                    Visionary insights coupled with cutting edge technology is a
+                    recipe for revolution
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    className={classes.learnButtonHero}
+                  >
+                    <span style={{ marginRight: 10 }}> Learn more</span>
+                    <ButtonArrow
+                      width="15"
+                      height="15"
+                      fill={theme.palette.common.blue}
+                    />
+                  </Button>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+          <div className={classes.revolutionBackground} />
         </Grid>
       </Grid>
     </Grid>
