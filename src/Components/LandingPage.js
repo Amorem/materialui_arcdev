@@ -124,7 +124,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LandingPage() {
+export default function LandingPage(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -161,6 +161,7 @@ export default function LandingPage() {
                   to="/estimate"
                   className={classes.estimateButton}
                   variant="contained"
+                  onClick={() => props.setValue(false)}
                 >
                   Free Estimate
                 </Button>
@@ -171,6 +172,7 @@ export default function LandingPage() {
                   className={classes.learnButtonHero}
                   component={Link}
                   to="/revolution"
+                  onClick={() => props.setValue(2)}
                 >
                   <span style={{ marginRight: 10 }}> Learn more</span>
                   <ButtonArrow
@@ -215,6 +217,10 @@ export default function LandingPage() {
               className={classes.learnButton}
               component={Link}
               to="/software"
+              onClick={() => {
+                props.setValue(1);
+                props.setSelectedIndex(1);
+              }}
             >
               <span style={{ marginRight: 10 }}> Learn more</span>
               <ButtonArrow
@@ -260,6 +266,10 @@ export default function LandingPage() {
               className={classes.learnButton}
               component={Link}
               to="/mobileapp"
+              onClick={() => {
+                props.setValue(1);
+                props.setSelectedIndex(2);
+              }}
             >
               <span style={{ marginRight: 10 }}> Learn more</span>
               <ButtonArrow
@@ -305,6 +315,10 @@ export default function LandingPage() {
               className={classes.learnButton}
               component={Link}
               to="/websites"
+              onClick={() => {
+                props.setValue(1);
+                props.setSelectedIndex(3);
+              }}
             >
               <span style={{ marginRight: 10 }}> Learn more</span>
               <ButtonArrow
@@ -353,6 +367,7 @@ export default function LandingPage() {
                     className={classes.learnButtonHero}
                     component={Link}
                     to="/revolution"
+                    onClick={() => props.setValue(2)}
                   >
                     <span style={{ marginRight: 10 }}> Learn more</span>
                     <ButtonArrow
@@ -375,12 +390,12 @@ export default function LandingPage() {
           direction="row"
           alignItems="center"
           style={{ height: "80em" }}
+          className={classes.infoBackground}
         >
           <Grid
             item
             container
             style={{
-              position: "absolute",
               textAlign: matchesXS ? "center" : "inherit",
             }}
             direction={matchesXS ? "column" : "row"}
@@ -404,6 +419,7 @@ export default function LandingPage() {
                     className={classes.learnButton}
                     component={Link}
                     to="/about"
+                    onClick={() => props.setValue(3)}
                     style={{ color: "white", borderColor: "white" }}
                   >
                     <span style={{ marginRight: 10 }}> Learn more</span>
@@ -436,6 +452,7 @@ export default function LandingPage() {
                     className={classes.learnButton}
                     component={Link}
                     to="/contact"
+                    onClick={() => props.setValue(4)}
                     style={{ color: "white", borderColor: "white" }}
                   >
                     <span style={{ marginRight: 10 }}> Learn more</span>
@@ -445,11 +462,13 @@ export default function LandingPage() {
               </Grid>
             </Grid>
           </Grid>
-          <div className={classes.infoBackground}></div>
         </Grid>
       </Grid>
       <Grid item>
-        <CallToAction />
+        <CallToAction
+          setValue={props.setValue}
+          setSelectedIndex={props.setSelectedIndex}
+        />
       </Grid>
     </Grid>
   );

@@ -22,9 +22,10 @@ function App() {
           <Route
             exact
             path="/"
-            render={() => (
+            render={(props) => (
               <LandingPage
-                selectedIndex={selectedIndex}
+                {...props}
+                setValue={setValue}
                 setSelectedIndex={setSelectedIndex}
               />
             )}
