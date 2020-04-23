@@ -19,7 +19,16 @@ function App() {
           setSelectedIndex={setSelectedIndex}
         />
         <Switch>
-          <Route exact path="/" component={LandingPage} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <LandingPage
+                selectedIndex={selectedIndex}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
+          />
           <Route exact path="/services" component={() => <div>Services</div>} />
           <Route exact path="/software" component={() => <div>Software</div>} />
           <Route
@@ -38,8 +47,6 @@ function App() {
           <Route exact path="/estimate" component={() => <div>Estimate</div>} />
         </Switch>
         <Footer
-          value={value}
-          setValue={setValue}
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
         />

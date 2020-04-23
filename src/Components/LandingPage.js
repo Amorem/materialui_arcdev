@@ -9,6 +9,7 @@ import ButtonArrow from "./UI/ButtonArrow";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CallToAction from "./UI/CallToAction";
+import { Link } from "react-router-dom";
 
 import animationData from "../animations/landinganimation/data";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
@@ -155,12 +156,22 @@ export default function LandingPage() {
               className={classes.buttonContainer}
             >
               <Grid item>
-                <Button className={classes.estimateButton} variant="contained">
+                <Button
+                  component={Link}
+                  to="/estimate"
+                  className={classes.estimateButton}
+                  variant="contained"
+                >
                   Free Estimate
                 </Button>
               </Grid>
               <Grid item>
-                <Button variant="outlined" className={classes.learnButtonHero}>
+                <Button
+                  variant="outlined"
+                  className={classes.learnButtonHero}
+                  component={Link}
+                  to="/revolution"
+                >
                   <span style={{ marginRight: 10 }}> Learn more</span>
                   <ButtonArrow
                     width="15"
@@ -199,7 +210,12 @@ export default function LandingPage() {
               Complete digital solution, from investigation to {}
               <span className={classes.specialText}>celebration.</span>
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button
+              variant="outlined"
+              className={classes.learnButton}
+              component={Link}
+              to="/software"
+            >
               <span style={{ marginRight: 10 }}> Learn more</span>
               <ButtonArrow
                 width="10"
@@ -239,7 +255,12 @@ export default function LandingPage() {
               Integrate your web experience or create a standalone App
               {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button
+              variant="outlined"
+              className={classes.learnButton}
+              component={Link}
+              to="/mobileapp"
+            >
               <span style={{ marginRight: 10 }}> Learn more</span>
               <ButtonArrow
                 width="10"
@@ -279,7 +300,12 @@ export default function LandingPage() {
             <Typography variant="subtitle1">
               Optimized for Search Engines, built for speed.
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button
+              variant="outlined"
+              className={classes.learnButton}
+              component={Link}
+              to="/websites"
+            >
               <span style={{ marginRight: 10 }}> Learn more</span>
               <ButtonArrow
                 width="10"
@@ -325,6 +351,8 @@ export default function LandingPage() {
                   <Button
                     variant="outlined"
                     className={classes.learnButtonHero}
+                    component={Link}
+                    to="/revolution"
                   >
                     <span style={{ marginRight: 10 }}> Learn more</span>
                     <ButtonArrow
@@ -374,6 +402,8 @@ export default function LandingPage() {
                   <Button
                     variant="outlined"
                     className={classes.learnButton}
+                    component={Link}
+                    to="/about"
                     style={{ color: "white", borderColor: "white" }}
                   >
                     <span style={{ marginRight: 10 }}> Learn more</span>
@@ -404,6 +434,8 @@ export default function LandingPage() {
                   <Button
                     variant="outlined"
                     className={classes.learnButton}
+                    component={Link}
+                    to="/contact"
                     style={{ color: "white", borderColor: "white" }}
                   >
                     <span style={{ marginRight: 10 }}> Learn more</span>
