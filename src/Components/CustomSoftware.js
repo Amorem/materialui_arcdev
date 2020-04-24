@@ -42,6 +42,7 @@ export default function CustomSoftware(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQUery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQUery(theme.breakpoints.down("sm"));
   const documentsOptions = {
     loop: true,
     autoplay: true,
@@ -194,7 +195,11 @@ export default function CustomSoftware(props) {
           container
           direction="column"
           md
-          style={{ maxWidth: "40em" }}
+          style={{
+            maxWidth: "40em",
+            marginTop: matchesSM ? "10em" : 0,
+            marginBottom: matchesSM ? "10em" : 0,
+          }}
           alignItems="center"
         >
           <Grid item>
@@ -227,7 +232,13 @@ export default function CustomSoftware(props) {
         alignItems={matchesMD ? "center" : undefined}
         justify="space-between"
       >
-        <Grid item container className={classes.itemContainer}>
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          md
+          style={{ marginBottom: matchesMD ? "15em" : 0 }}
+        >
           <Grid item container direction="column" md>
             <Grid item>
               <Typography variant="h4">Digital Documents & Data</Typography>
@@ -323,7 +334,13 @@ export default function CustomSoftware(props) {
         justify="space-between"
         style={{ marginBottom: "10em" }}
       >
-        <Grid item container className={classes.itemContainer}>
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          md
+          style={{ marginBottom: matchesMD ? "15em" : 0 }}
+        >
           <Grid item container direction="column" md>
             <Grid item>
               <Typography variant="h4">Automation</Typography>
