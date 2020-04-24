@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import useMediaQUery from "@material-ui/core/useMediaQuery";
+import Hidden from "@material-ui/core/Hidden";
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
@@ -39,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CustomSoftware(props) {
   const classes = useStyles();
+  const theme = useTheme();
+  const matchesMD = useMediaQUery(theme.breakpoints.down("md"));
   const documentsOptions = {
     loop: true,
     autoplay: true,
@@ -77,36 +80,55 @@ export default function CustomSoftware(props) {
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
-      <Grid item container direction="row">
-        <Grid
-          item
-          className={classes.arrowContainer}
-          style={{ marginRight: "1em", marginLeft: "-3.5em" }}
-        >
-          <IconButton
-            style={{ backgroundColor: "transparent" }}
-            component={Link}
-            to="/services"
-            onClick={() => props.setSelectedIndex(0)}
+      <Grid
+        item
+        container
+        direction="row"
+        justify={matchesMD ? "center" : undefined}
+      >
+        <Hidden mdDown>
+          <Grid
+            item
+            className={classes.arrowContainer}
+            style={{ marginRight: "1em", marginLeft: "-3.5em" }}
           >
-            <img src={backArrow} alt="Back to Services page" />
-          </IconButton>
-        </Grid>
+            <IconButton
+              style={{ backgroundColor: "transparent" }}
+              component={Link}
+              to="/services"
+              onClick={() => props.setSelectedIndex(0)}
+            >
+              <img src={backArrow} alt="Back to Services page" />
+            </IconButton>
+          </Grid>
+        </Hidden>
         <Grid item container direction="column" className={classes.heading}>
           <Grid item>
             <Typography variant="h2">Custom Software Development</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body1" paragraph>
+            <Typography
+              variant="body1"
+              paragraph
+              align={matchesMD ? "center" : undefined}
+            >
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual
               mockups.
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              variant="body1"
+              paragraph
+              align={matchesMD ? "center" : undefined}
+            >
               From its medieval origins to the digital era, learn everything
               there is to know about the ubiquitous lorem ipsum passage.
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              variant="body1"
+              paragraph
+              align={matchesMD ? "center" : undefined}
+            >
               Richard McClintock, a Latin scholar from Hampden-Sydney College,
               is credited with discovering the source behind the ubiquitous
               filler text. In seeing a sample of lorem ipsum, his interest was
@@ -115,7 +137,11 @@ export default function CustomSoftware(props) {
               Finibus Bonorum et Malorum (“On the Extremes of Good and Evil”), a
               first-century B.C. text from the Roman philosopher Cicero.
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              variant="body1"
+              paragraph
+              align={matchesMD ? "center" : undefined}
+            >
               Until recently, the prevailing view assumed lorem ipsum was born
               as a nonsense text. “It's not Latin, though it looks like it, and
               it actually says nothing,” Before & After magazine answered a
@@ -125,26 +151,28 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item className={classes.arrowContainer}>
-          <IconButton
-            style={{ backgroundColor: "transparent" }}
-            component={Link}
-            to="/mobileapps"
-            onClick={() => props.setSelectedIndex(2)}
-          >
-            <img
-              src={forwardArrow}
-              alt="Forward to iOS/Andoid App Development page"
-            />
-          </IconButton>
-        </Grid>
+        <Hidden mdDown>
+          <Grid item className={classes.arrowContainer}>
+            <IconButton
+              style={{ backgroundColor: "transparent" }}
+              component={Link}
+              to="/mobileapps"
+              onClick={() => props.setSelectedIndex(2)}
+            >
+              <img
+                src={forwardArrow}
+                alt="Forward to iOS/Andoid App Development page"
+              />
+            </IconButton>
+          </Grid>
+        </Hidden>
       </Grid>
       <Grid
         item
         container
         direction="row"
         justify="center"
-        style={{ marginTop: "15em", marginBottom: "15em" }}
+        style={{ marginTop: "15em", marginBottom: "20em" }}
       >
         <Grid
           item
@@ -192,7 +220,13 @@ export default function CustomSoftware(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row" justify="space-between">
+      <Grid
+        item
+        container
+        direction={matchesMD ? "column" : "row"}
+        alignItems={matchesMD ? "center" : undefined}
+        justify="space-between"
+      >
         <Grid item container className={classes.itemContainer}>
           <Grid item container direction="column" md>
             <Grid item>
@@ -225,13 +259,13 @@ export default function CustomSoftware(props) {
           </Grid>
         </Grid>
         <Grid item container className={classes.itemContainer} md>
+          <Grid item md>
+            <Lottie
+              options={scaleOptions}
+              style={{ maxHeight: 260, maxWidth: 280 }}
+            />
+          </Grid>
           <Grid item container direction="column" md>
-            <Grid item md>
-              <Lottie
-                options={scaleOptions}
-                style={{ maxHeight: 260, maxWidth: 280 }}
-              />
-            </Grid>
             <Grid item>
               <Typography variant="h4" align="right">
                 Scale
@@ -281,7 +315,14 @@ export default function CustomSoftware(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row" justify="space-between">
+      <Grid
+        item
+        container
+        direction={matchesMD ? "column" : "row"}
+        alignItems={matchesMD ? "center" : undefined}
+        justify="space-between"
+        style={{ marginBottom: "10em" }}
+      >
         <Grid item container className={classes.itemContainer}>
           <Grid item container direction="column" md>
             <Grid item>
@@ -313,17 +354,17 @@ export default function CustomSoftware(props) {
           </Grid>
         </Grid>
         <Grid item container className={classes.itemContainer} md>
+          <Grid item md>
+            <Lottie
+              options={uxOptions}
+              style={{ maxHeight: 310, maxWidth: 155 }}
+            />
+          </Grid>
           <Grid item container direction="column" md>
             <Grid item>
               <Typography variant="h4" align="right">
                 User Experience Design
               </Typography>
-            </Grid>
-            <Grid item md>
-              <Lottie
-                options={uxOptions}
-                style={{ maxHeight: 310, maxWidth: 155 }}
-              />
             </Grid>
             <Grid item>
               <Typography variant="body1" align="right" paragraph>
