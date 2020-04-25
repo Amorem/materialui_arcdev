@@ -10,7 +10,12 @@ import IconButton from "@material-ui/core/IconButton";
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
+import swiss from "../assets/swissKnife.svg";
+import access from "../assets/extendAccess.svg";
+import engagement from "../assets/increaseEngagement.svg";
+
 import integrationAnimation from "../animations/integrationAnimation/data.json";
+import CallToAction from "./UI/CallToAction";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -33,6 +38,7 @@ export default function MobileApps(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const defaultOptions = {
@@ -123,20 +129,38 @@ export default function MobileApps(props) {
           </Grid>
         </Hidden>
       </Grid>
-      <Grid item container direction="row" className={classes.rowContainer}>
+      <Grid
+        item
+        container
+        direction={matchesSM ? "column" : "row"}
+        style={{ marginTop: "15em", marginBottom: "15em" }}
+        className={classes.rowContainer}
+      >
         <Grid item container direction="column" md>
           <Grid item>
-            <Typography variant="h4" gutterBottom>
+            <Typography
+              variant="h4"
+              gutterBottom
+              align={matchesSM ? "center" : undefined}
+            >
               Integration
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body1" paragraph>
+            <Typography
+              variant="body1"
+              paragraph
+              align={matchesSM ? "center" : undefined}
+            >
               Choose from meeting speak, client feedback or just the classic
               with Office Ipsum, a filler text generator for those really dull
               projects you just can't stand.
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              variant="body1"
+              paragraph
+              align={matchesSM ? "center" : undefined}
+            >
               Want to see if anyone is actually looking at your mockups? Add a
               sprinkling of expletives to your filler text with this swearing
               lorem ipsum generator.
@@ -148,23 +172,90 @@ export default function MobileApps(props) {
         </Grid>
         <Grid item container direction="column" md>
           <Grid item>
-            <Typography variant="h4" gutterBottom align="right">
+            <Typography
+              variant="h4"
+              gutterBottom
+              align={matchesSM ? "center" : "right"}
+            >
               Simultaneous Plateform Support
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body1" paragraph align="right">
+            <Typography
+              variant="body1"
+              paragraph
+              align={matchesSM ? "center" : "right"}
+            >
               Leverage this synergistic dummy text generator to capitalize on
               the disruptive nature of corporate buzzword filled lorem ipsum for
               your next agile project.
             </Typography>
-            <Typography variant="body1" paragraph align="right">
+            <Typography
+              variant="body1"
+              paragraph
+              align={matchesSM ? "center" : "right"}
+            >
               Give your lorem ipsum a bit of character with this text generator
               inspired by the great state of Maine, featuring a classic New
               England accent and phrases.
             </Typography>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction={matchesMD ? "column" : "row"}
+        className={classes.rowContainer}
+        style={{ marginBottom: "15em" }}
+      >
+        <Grid item container direction="column" md alignItems="center">
+          <Grid item>
+            <Typography variant="h4" gutterBottom align="center">
+              Extend Functionality
+            </Typography>
+          </Grid>
+          <Grid item>
+            <img src={swiss} alt="Swiss army knife" />
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          direction="column"
+          md
+          alignItems="center"
+          style={{
+            marginTop: matchesMD ? "10em" : 0,
+            marginBottom: matchesMD ? "10em" : 0,
+          }}
+        >
+          <Grid item>
+            <Typography variant="h4" gutterBottom align="center">
+              Extend Access
+            </Typography>
+          </Grid>
+          <Grid item>
+            <img
+              src={access}
+              alt="tear-one-off sign"
+              style={{ maxWidth: matchesXS ? "20em" : "28em" }}
+            />
+          </Grid>
+        </Grid>
+        <Grid item container direction="column" md alignItems="center">
+          <Grid item>
+            <Typography variant="h4" gutterBottom align="center">
+              Increase Engagement
+            </Typography>
+          </Grid>
+          <Grid item>
+            <img src={engagement} alt="app with notification" />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <CallToAction setValue={props.setValue} />
       </Grid>
     </Grid>
   );
