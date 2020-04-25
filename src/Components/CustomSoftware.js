@@ -20,6 +20,8 @@ import scaleAnimation from "../animations/scaleAnimation/data";
 import automationAnimation from "../animations/automationAnimation/data";
 import uxAnimation from "../animations/uxAnimation/data";
 
+import CallToAction from "./UI/CallToAction";
+
 const useStyles = makeStyles((theme) => ({
   heading: {
     maxWidth: "40em",
@@ -27,11 +29,13 @@ const useStyles = makeStyles((theme) => ({
   arrowContainer: {
     marginTop: "0.5em",
   },
-  mainContainer: {
+  rowContainer: {
     paddingLeft: "5em",
     paddingRight: "5em",
-    paddingTop: "2em",
-    paddingBottom: "10em",
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "1.5em",
+      paddingRight: "1.5em",
+    },
   },
   itemContainer: {
     maxWidth: "40em",
@@ -43,6 +47,7 @@ export default function CustomSoftware(props) {
   const theme = useTheme();
   const matchesMD = useMediaQUery(theme.breakpoints.down("md"));
   const matchesSM = useMediaQUery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQUery(theme.breakpoints.down("xs"));
   const documentsOptions = {
     loop: true,
     autoplay: true,
@@ -80,12 +85,14 @@ export default function CustomSoftware(props) {
   };
 
   return (
-    <Grid container direction="column" className={classes.mainContainer}>
+    <Grid container direction="column">
       <Grid
         item
         container
         direction="row"
         justify={matchesMD ? "center" : undefined}
+        className={classes.rowContainer}
+        style={{ marginTop: matchesXS ? "1em" : "2em" }}
       >
         <Hidden mdDown>
           <Grid
@@ -174,6 +181,7 @@ export default function CustomSoftware(props) {
         direction="row"
         justify="center"
         style={{ marginTop: "15em", marginBottom: "20em" }}
+        className={classes.rowContainer}
       >
         <Grid
           item
@@ -231,31 +239,47 @@ export default function CustomSoftware(props) {
         direction={matchesMD ? "column" : "row"}
         alignItems={matchesMD ? "center" : undefined}
         justify="space-between"
+        className={classes.rowContainer}
       >
         <Grid
           item
           container
           className={classes.itemContainer}
+          direction={matchesSM ? "column" : "row"}
           md
           style={{ marginBottom: matchesMD ? "15em" : 0 }}
         >
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4">Digital Documents & Data</Typography>
+              <Typography variant="h4" align={matchesSM ? "center" : undefined}>
+                Digital Documents & Data
+              </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesSM ? "center" : undefined}
+              >
                 The decade that brought us Star Trek and Doctor Who also
                 resurrected Cicero—or at least what used to be Cicero—in an
                 attempt to make the days before computerized design a little
                 less painstaking.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesSM ? "center" : undefined}
+              >
                 The French lettering company Letraset manufactured a set of
                 dry-transfer sheets which included the lorem ipsum filler text
                 in a variety of fonts, sizes, and layouts.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesSM ? "center" : undefined}
+              >
                 Aldus Corporation, which later merged with Adobe Systems,
                 ushered lorem ipsum into the information age with its desktop
                 publishing software Aldus PageMaker.
@@ -269,7 +293,13 @@ export default function CustomSoftware(props) {
             />
           </Grid>
         </Grid>
-        <Grid item container className={classes.itemContainer} md>
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          md
+          direction={matchesSM ? "column" : "row"}
+        >
           <Grid item md>
             <Lottie
               options={scaleOptions}
@@ -278,12 +308,16 @@ export default function CustomSoftware(props) {
           </Grid>
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4" align="right">
+              <Typography variant="h4" align={matchesSM ? "center" : "right"}>
                 Scale
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="body1" align="right" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesSM ? "center" : "right"}
+              >
                 And that’s why a 15th century typesetter might have scrambled a
                 passage of Cicero; he wanted people to focus on his fonts, to
                 imagine their own content on the pages. He wanted people to see,
@@ -298,14 +332,15 @@ export default function CustomSoftware(props) {
         container
         direction="row"
         style={{ marginTop: "20em", marginBottom: "20em" }}
+        className={classes.rowContainer}
       >
         <Grid item container direction="column" alignItems="center">
           <Grid item>
             <img
               src={roots}
               alt="tree with roots extending out"
-              height="450em"
-              width="450"
+              height={matchesSM ? "300em" : "450em"}
+              width={matchesSM ? "300em" : "450em"}
             />
           </Grid>
           <Grid item className={classes.itemContainer}>
@@ -332,31 +367,47 @@ export default function CustomSoftware(props) {
         direction={matchesMD ? "column" : "row"}
         alignItems={matchesMD ? "center" : undefined}
         justify="space-between"
-        style={{ marginBottom: "10em" }}
+        style={{ marginBottom: "20em" }}
+        className={classes.rowContainer}
       >
         <Grid
           item
           container
           className={classes.itemContainer}
           md
+          direction={matchesSM ? "column" : "row"}
           style={{ marginBottom: matchesMD ? "15em" : 0 }}
         >
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4">Automation</Typography>
+              <Typography variant="h4" align={matchesSM ? "center" : undefined}>
+                Automation
+              </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesSM ? "center" : undefined}
+              >
                 If you haven't seen Game of Thrones, go watch it right now. If
                 you have then you'll totally get why this Hodor themed lorem
                 ipsum generator is just brilliant.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesSM ? "center" : undefined}
+              >
                 In case you don't read Twitter, the news, or just can't get
                 enough of The Apprentice host's legendary oration, try this
                 Trump lorem ipsum generator on for size.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesSM ? "center" : undefined}
+              >
                 A handcrafted, small-batch, artisinal pour-over version of the
                 classic lorem ipsum generator, Hipster Ipsum will give your
                 mocks that blue collar touch.
@@ -370,7 +421,13 @@ export default function CustomSoftware(props) {
             />
           </Grid>
         </Grid>
-        <Grid item container className={classes.itemContainer} md>
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          md
+          direction={matchesSM ? "column" : "row"}
+        >
           <Grid item md>
             <Lottie
               options={uxOptions}
@@ -379,22 +436,34 @@ export default function CustomSoftware(props) {
           </Grid>
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4" align="right">
+              <Typography variant="h4" align={matchesSM ? "center" : "right"}>
                 User Experience Design
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="body1" align="right" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesSM ? "center" : "right"}
+                paragraph
+              >
                 Raise your design from the dead with an army of Zombie Ipsum,
                 frightful filler text that just won't die. Try the lorem ipsum
                 of the undead if you dare...
               </Typography>
-              <Typography variant="body1" align="right" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesSM ? "center" : "right"}
+                paragraph
+              >
                 Like your lorem ipsum extra crispy? Then Bacon Ipsum is the
                 placeholder text generator for you. Side of eggs and hashbrowns
                 is optional, but recommended.
               </Typography>
-              <Typography variant="body1" align="right" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesSM ? "center" : "right"}
+                paragraph
+              >
                 Sugary sweet lorem ipsum? You got it with Cupcake Ipsum, the
                 only text generator that includes marshmallows, carrot cake, and
                 perhaps even a cherry on top.
@@ -402,6 +471,9 @@ export default function CustomSoftware(props) {
             </Grid>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid item>
+        <CallToAction setValue={props.setValue} />
       </Grid>
     </Grid>
   );
