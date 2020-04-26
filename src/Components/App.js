@@ -9,6 +9,7 @@ import Services from "./Services";
 import CustomSoftware from "./CustomSoftware";
 import MobileApps from "./MobileApps";
 import Websites from "./Websites";
+import Revolution from "./Revolution";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -53,10 +54,9 @@ function App() {
           <Route exact path="/websites">
             <Websites setValue={setValue} setSelectedIndex={setSelectedIndex} />
           </Route>
-          <Route
-            exact
-            path="/revolution"
-            component={() => <div>Revolution</div>}
+          <Route exact path="/revolution">
+            <Revolution />
+          </Route>
           />
           <Route exact path="/about" component={() => <div>About</div>} />
           <Route exact path="/contact" component={() => <div>Contact</div>} />
