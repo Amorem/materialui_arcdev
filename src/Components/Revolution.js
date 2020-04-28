@@ -5,6 +5,15 @@ import Typography from "@material-ui/core/Typography";
 import Lottie from "react-lottie";
 
 import vision from "../assets/vision.svg";
+import consultation from "../assets/consultationIcon.svg";
+import mockup from "../assets/mockupIcon.svg";
+import review from "../assets/reviewIcon.svg";
+import design from "../assets/designIcon.svg";
+import build from "../assets/buildIcon.svg";
+import launch from "../assets/launchIcon.svg";
+import maintain from "../assets/maintainIcon.svg";
+import iterate from "../assets/iterateIcon.svg";
+
 import technologyAnimation from "../animations/technologyAnimation/data.json";
 
 const useStyles = makeStyles((theme) => ({
@@ -133,6 +142,505 @@ export default function Revolution() {
             options={defaultOptions}
             style={{ maxWidth: "40em", margin: 0 }}
           />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        justify="center"
+      >
+        <Grid item>
+          <Typography variant="h4" gutterBottom>
+            Process
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        style={{ backgroundColor: "#B3B3B3", height: "90em" }}
+      >
+        <Grid item container direction="column" lg>
+          <Grid item>
+            <Typography
+              variant="h4"
+              gutterBottom
+              style={{ color: "#000", marginTop: "5em" }}
+            >
+              Consultation
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Bulls at rose garden cucumbers mice sunflower wheat in
+              pig. Chainsaw foal hay hook, herbs at combine harvester, children
+              is mallet. Goat goose hen horse. Pick up truck livestock, pets and
+              storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Lamb.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt
+              i mechad dee Schwoanshaxn Zwedschgndadschi a bissal wos gehd
+              ollaweil. Measi a ganze es i mog di fei aasgem, Blosmusi.
+              Schmankal zwoa Ramasuri Edlweiss.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Wia vo de Weiznglasl wos, imma hogg di hera Guglhupf! Schorsch
+              Spotzerl schnacksln Weiznglasl vui gschmeidig a ganze auf der Oim,
+              da gibt’s koa Sünd, etza!
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item lg style={{ alignSelf: "center" }}>
+          <img src={consultation} alt="handshake" />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        style={{ backgroundColor: "#FF7373", height: "90em" }}
+      >
+        <Grid item container direction="column" lg>
+          <Grid item>
+            <Typography
+              variant="h4"
+              gutterBottom
+              style={{ color: "#000", marginTop: "5em" }}
+            >
+              Mockup
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Bulls at rose garden cucumbers mice sunflower wheat in
+              pig. Chainsaw foal hay hook, herbs at combine harvester, children
+              is mallet. Goat goose hen horse. Pick up truck livestock, pets and
+              storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Lamb.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt
+              i mechad dee Schwoanshaxn Zwedschgndadschi a bissal wos gehd
+              ollaweil. Measi a ganze es i mog di fei aasgem, Blosmusi.
+              Schmankal zwoa Ramasuri Edlweiss.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Wia vo de Weiznglasl wos, imma hogg di hera Guglhupf! Schorsch
+              Spotzerl schnacksln Weiznglasl vui gschmeidig a ganze auf der Oim,
+              da gibt’s koa Sünd, etza!
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item lg style={{ alignSelf: "center" }}>
+          <img src={mockup} alt="basic website design outline" />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        style={{ backgroundColor: "#39B54A", height: "90em" }}
+      >
+        <Grid item container direction="column" lg>
+          <Grid item>
+            <Typography
+              variant="h4"
+              gutterBottom
+              style={{ color: "#000", marginTop: "5em" }}
+            >
+              Review
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Bulls at rose garden cucumbers mice sunflower wheat in
+              pig. Chainsaw foal hay hook, herbs at combine harvester, children
+              is mallet. Goat goose hen horse. Pick up truck livestock, pets and
+              storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Lamb.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt
+              i mechad dee Schwoanshaxn Zwedschgndadschi a bissal wos gehd
+              ollaweil. Measi a ganze es i mog di fei aasgem, Blosmusi.
+              Schmankal zwoa Ramasuri Edlweiss.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Wia vo de Weiznglasl wos, imma hogg di hera Guglhupf! Schorsch
+              Spotzerl schnacksln Weiznglasl vui gschmeidig a ganze auf der Oim,
+              da gibt’s koa Sünd, etza!
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item lg style={{ alignSelf: "center" }}>
+          <img src={review} alt="magnifying glass" />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        style={{ backgroundColor: "#A67C52", height: "90em" }}
+      >
+        <Grid item container direction="column" lg>
+          <Grid item>
+            <Typography
+              variant="h4"
+              gutterBottom
+              style={{ color: "#000", marginTop: "5em" }}
+            >
+              Design
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Bulls at rose garden cucumbers mice sunflower wheat in
+              pig. Chainsaw foal hay hook, herbs at combine harvester, children
+              is mallet. Goat goose hen horse. Pick up truck livestock, pets and
+              storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Lamb.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt
+              i mechad dee Schwoanshaxn Zwedschgndadschi a bissal wos gehd
+              ollaweil. Measi a ganze es i mog di fei aasgem, Blosmusi.
+              Schmankal zwoa Ramasuri Edlweiss.
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item lg style={{ alignSelf: "center" }}>
+          <img src={design} alt="paintbrush" />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        style={{ backgroundColor: "#39B54A", height: "90em" }}
+      >
+        <Grid item container direction="column" lg>
+          <Grid item>
+            <Typography
+              variant="h4"
+              gutterBottom
+              style={{ color: "#000", marginTop: "5em" }}
+            >
+              Review
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Bulls at rose garden cucumbers mice sunflower wheat in
+              pig. Chainsaw foal hay hook, herbs at combine harvester, children
+              is mallet. Goat goose hen horse. Pick up truck livestock, pets and
+              storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Lamb.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt
+              i mechad dee Schwoanshaxn Zwedschgndadschi a bissal wos gehd
+              ollaweil. Measi a ganze es i mog di fei aasgem, Blosmusi.
+              Schmankal zwoa Ramasuri Edlweiss.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Wia vo de Weiznglasl wos, imma hogg di hera Guglhupf! Schorsch
+              Spotzerl schnacksln Weiznglasl vui gschmeidig a ganze auf der Oim,
+              da gibt’s koa Sünd, etza!
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item lg style={{ alignSelf: "center" }}>
+          <img src={review} alt="review" />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        style={{ backgroundColor: "#FBB03B", height: "90em" }}
+      >
+        <Grid item container direction="column" lg>
+          <Grid item>
+            <Typography
+              variant="h4"
+              gutterBottom
+              style={{ color: "#000", marginTop: "5em" }}
+            >
+              Build
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Bulls at rose garden cucumbers mice sunflower wheat in
+              pig. Chainsaw foal hay hook, herbs at combine harvester, children
+              is mallet. Goat goose hen horse. Pick up truck livestock, pets and
+              storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Lamb.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt
+              i mechad dee Schwoanshaxn Zwedschgndadschi a bissal wos gehd
+              ollaweil. Measi a ganze es i mog di fei aasgem, Blosmusi.
+              Schmankal zwoa Ramasuri Edlweiss.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Wia vo de Weiznglasl wos, imma hogg di hera Guglhupf! Schorsch
+              Spotzerl schnacksln Weiznglasl vui gschmeidig a ganze auf der Oim,
+              da gibt’s koa Sünd, etza!
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item lg style={{ alignSelf: "center" }}>
+          <img src={build} alt="building construction site" />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        style={{ backgroundColor: "#C1272D", height: "90em" }}
+      >
+        <Grid item container direction="column" lg>
+          <Grid item>
+            <Typography
+              variant="h4"
+              gutterBottom
+              style={{ color: "#000", marginTop: "5em" }}
+            >
+              Launch
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Bulls at rose garden cucumbers mice sunflower wheat in
+              pig. Chainsaw foal hay hook, herbs at combine harvester, children
+              is mallet. Goat goose hen horse. Pick up truck livestock, pets and
+              storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Lamb.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt
+              i mechad dee Schwoanshaxn Zwedschgndadschi a bissal wos gehd
+              ollaweil. Measi a ganze es i mog di fei aasgem, Blosmusi.
+              Schmankal zwoa Ramasuri Edlweiss.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Wia vo de Weiznglasl wos, imma hogg di hera Guglhupf! Schorsch
+              Spotzerl schnacksln Weiznglasl vui gschmeidig a ganze auf der Oim,
+              da gibt’s koa Sünd, etza!
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item lg style={{ alignSelf: "center" }}>
+          <img src={launch} alt="rocket" />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        style={{ backgroundColor: "#8E45CE", height: "90em" }}
+      >
+        <Grid item container direction="column" lg>
+          <Grid item>
+            <Typography
+              variant="h4"
+              gutterBottom
+              style={{ color: "#000", marginTop: "5em" }}
+            >
+              Maintain
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Bulls at rose garden cucumbers mice sunflower wheat in
+              pig. Chainsaw foal hay hook, herbs at combine harvester, children
+              is mallet. Goat goose hen horse. Pick up truck livestock, pets and
+              storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Lamb.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt
+              i mechad dee Schwoanshaxn Zwedschgndadschi a bissal wos gehd
+              ollaweil. Measi a ganze es i mog di fei aasgem, Blosmusi.
+              Schmankal zwoa Ramasuri Edlweiss.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Wia vo de Weiznglasl wos, imma hogg di hera Guglhupf! Schorsch
+              Spotzerl schnacksln Weiznglasl vui gschmeidig a ganze auf der Oim,
+              da gibt’s koa Sünd, etza!
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item lg style={{ alignSelf: "center" }}>
+          <img src={maintain} alt="wrench tightening bolts" />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        className={classes.rowContainer}
+        style={{ backgroundColor: "#29ABE2", height: "90em" }}
+      >
+        <Grid item container direction="column" lg>
+          <Grid item>
+            <Typography
+              variant="h4"
+              gutterBottom
+              style={{ color: "#000", marginTop: "5em" }}
+            >
+              Iterate
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Bulls at rose garden cucumbers mice sunflower wheat in
+              pig. Chainsaw foal hay hook, herbs at combine harvester, children
+              is mallet. Goat goose hen horse. Pick up truck livestock, pets and
+              storage shed, troughs feed bale manure, is garden wheat oats at
+              augers. Lamb.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt
+              i mechad dee Schwoanshaxn Zwedschgndadschi a bissal wos gehd
+              ollaweil. Measi a ganze es i mog di fei aasgem, Blosmusi.
+              Schmankal zwoa Ramasuri Edlweiss.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              style={{ color: "#FFF", maxWidth: "20em" }}
+            >
+              Wia vo de Weiznglasl wos, imma hogg di hera Guglhupf! Schorsch
+              Spotzerl schnacksln Weiznglasl vui gschmeidig a ganze auf der Oim,
+              da gibt’s koa Sünd, etza!
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item lg style={{ alignSelf: "center" }}>
+          <img src={iterate} alt="falling dominoes" />
         </Grid>
       </Grid>
     </Grid>
