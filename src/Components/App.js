@@ -60,7 +60,7 @@ function App() {
           </Route>
           />
           <Route exact path="/about">
-            <About />
+            <About setValue={setValue} setSelectedIndex={setSelectedIndex} />
           </Route>
           <Route exact path="/contact" component={() => <div>Contact</div>} />
           <Route exact path="/estimate" component={() => <div>Estimate</div>} />

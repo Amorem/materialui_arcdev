@@ -1,8 +1,11 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
+import Hidden from "@material-ui/core/Hidden";
+import CallToAction from "./UI/CallToAction";
 
 import history from "../assets/history.svg";
 import profile from "../assets/founder.jpg";
@@ -28,18 +31,38 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     height: "25em",
     width: "25em",
+    [theme.breakpoints.down("sm")]: {
+      height: "20em",
+      width: "20em",
+      maxHeight: 300,
+      maxWidth: 300,
+    },
   },
 }));
 
-export default function About() {
+export default function About(props) {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <Grid direction="column">
-      <Grid item className={classes.rowContainer} style={{ marginTop: "2em" }}>
-        <Typography variant="h2">About Us</Typography>
+      <Grid
+        item
+        className={classes.rowContainer}
+        style={{ marginTop: matchesMD ? "1em" : "2em" }}
+      >
+        <Typography variant="h2" align={matchesMD ? "center" : undefined}>
+          About Us
+        </Typography>
       </Grid>
-      <Grid item container justify="center" className={classes.rowContainer}>
+      <Grid
+        item
+        container
+        justify="center"
+        className={classes.rowContainer}
+        style={{ marginTop: "3em" }}
+      >
         <Typography
           variant="h4"
           className={classes.missionStatement}
@@ -54,7 +77,10 @@ export default function About() {
         item
         container
         className={classes.rowContainer}
+        direction={matchesMD ? "column" : "row"}
+        alignItems={matchesMD ? "center" : undefined}
         justify="space-around"
+        style={{ marginTop: "10em", marginBottom: "10em" }}
       >
         <Grid item>
           <Grid
@@ -65,7 +91,11 @@ export default function About() {
             style={{ maxWidth: "35em" }}
           >
             <Grid item>
-              <Typography variant="h4" gutterBottom>
+              <Typography
+                variant="h4"
+                gutterBottom
+                align={matchesMD ? "center" : undefined}
+              >
                 History
               </Typography>
             </Grid>
@@ -74,25 +104,42 @@ export default function About() {
                 variant="body1"
                 paragraph
                 style={{ fontWeight: 700, fontStyle: "italic" }}
+                align={matchesMD ? "center" : undefined}
               >
                 We are the new kids on the block
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesMD ? "center" : undefined}
+              >
                 If you haven't seen Game of Thrones, go watch it right now. If
                 you have then you'll totally get why this Hodor themed lorem
                 ipsum generator is just brilliant.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesMD ? "center" : undefined}
+              >
                 In case you don't read Twitter, the news, or just can't get
                 enough of The Apprentice host's legendary oration, try this
                 Trump lorem ipsum generator on for size.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesMD ? "center" : undefined}
+              >
                 A handcrafted, small-batch, artisinal pour-over version of the
                 classic lorem ipsum generator, Hipster Ipsum will give your
                 mocks that blue collar touch.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                paragraph
+                align={matchesMD ? "center" : undefined}
+              >
                 Raise your design from the dead with an army of Zombie Ipsum,
                 frightful filler text that just won't die. Try the lorem ipsum
                 of the undead if you dare...
@@ -105,7 +152,7 @@ export default function About() {
             <img
               src={history}
               alt="quill pen sitting on top of book"
-              style={{ maxHeight: "22em" }}
+              style={{ maxHeight: matchesMD ? 200 : "22em" }}
             />
           </Grid>
         </Grid>
@@ -116,6 +163,7 @@ export default function About() {
         direction="column"
         className={classes.rowContainer}
         alignItems="center"
+        style={{ marginBottom: "15em" }}
       >
         <Grid item>
           <Typography variant="h4" gutterBottom align="center">
@@ -133,10 +181,35 @@ export default function About() {
         <Grid item>
           <Avatar alt="founder" src={profile} className={classes.avatar} />
         </Grid>
-        <Grid item container>
-          <Grid item container direction="column" lg>
+        <Grid item container justify={matchesMD ? "center" : undefined}>
+          <Hidden lgUp>
+            <Grid item lg style={{ maxWidth: "45em", padding: "1.25em" }}>
+              <Typography variant="body1" paragraph align="center">
+                Explore the far reaches of the galaxy with this space-themed
+                dummy text generator, with quotes from TV classics like Star
+                Trek and real astronauts themselves.
+              </Typography>
+              <Typography variant="body1" paragraph align="center">
+                A Gary Busey themed lorem ipsum generator to fill your project
+                with a never ending stream of “buseyisms,” quotes taken directly
+                from the actor's extensive filmography.
+              </Typography>
+            </Grid>
+          </Hidden>
+          <Grid
+            item
+            container
+            direction="column"
+            lg
+            alignItems={matchesMD ? "center" : undefined}
+            style={{ marginBottom: matchesMD ? "2.5em" : 0 }}
+          >
             <Grid item>
-              <img src={yearbook} alt="yearbook" />
+              <img
+                src={yearbook}
+                alt="yearbook"
+                style={{ maxWidth: matchesMD ? 300 : undefined }}
+              />
             </Grid>
             <Grid item>
               <Typography variant="caption">
@@ -144,21 +217,33 @@ export default function About() {
               </Typography>
             </Grid>
           </Grid>
-          <Grid item lg style={{ maxWidth: "45em", padding: "1.25em" }}>
-            <Typography variant="body1" paragraph align="center">
-              Explore the far reaches of the galaxy with this space-themed dummy
-              text generator, with quotes from TV classics like Star Trek and
-              real astronauts themselves.
-            </Typography>
-            <Typography variant="body1" paragraph align="center">
-              A Gary Busey themed lorem ipsum generator to fill your project
-              with a never ending stream of “buseyisms,” quotes taken directly
-              from the actor's extensive filmography.
-            </Typography>
-          </Grid>
-          <Grid item container direction="column" lg alignItems="flex-end">
+          <Hidden mdDown>
+            <Grid item lg style={{ maxWidth: "45em", padding: "1.25em" }}>
+              <Typography variant="body1" paragraph align="center">
+                Explore the far reaches of the galaxy with this space-themed
+                dummy text generator, with quotes from TV classics like Star
+                Trek and real astronauts themselves.
+              </Typography>
+              <Typography variant="body1" paragraph align="center">
+                A Gary Busey themed lorem ipsum generator to fill your project
+                with a never ending stream of “buseyisms,” quotes taken directly
+                from the actor's extensive filmography.
+              </Typography>
+            </Grid>
+          </Hidden>
+          <Grid
+            item
+            container
+            direction="column"
+            lg
+            alignItems={matchesMD ? "center" : "flex-end"}
+          >
             <Grid item>
-              <img src={puppy} alt="puppy" />
+              <img
+                src={puppy}
+                alt="puppy"
+                style={{ maxWidth: matchesMD ? 300 : undefined }}
+              />
             </Grid>
             <Grid item>
               <Typography variant="caption">
@@ -167,6 +252,9 @@ export default function About() {
             </Grid>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid item>
+        <CallToAction setValue={props.setValue} />
       </Grid>
     </Grid>
   );
