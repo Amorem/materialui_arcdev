@@ -2,8 +2,12 @@ import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import Avatar from "@material-ui/core/Avatar";
 
 import history from "../assets/history.svg";
+import profile from "../assets/founder.jpg";
+import yearbook from "../assets/yearbook.svg";
+import puppy from "../assets/puppy.svg";
 
 const useStyles = makeStyles((theme) => ({
   missionStatement: {
@@ -20,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "1.5em",
       paddingRight: "1.5em",
     },
+  },
+  avatar: {
+    height: "25em",
+    width: "25em",
   },
 }));
 
@@ -99,6 +107,64 @@ export default function About() {
               alt="quill pen sitting on top of book"
               style={{ maxHeight: "22em" }}
             />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="column"
+        className={classes.rowContainer}
+        alignItems="center"
+      >
+        <Grid item>
+          <Typography variant="h4" gutterBottom align="center">
+            Team
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body1" paragraph align="center">
+            Cedric TOURNIER, Founder
+          </Typography>
+          <Typography variant="body1" paragraph align="center">
+            I started when I was 9 years old
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Avatar alt="founder" src={profile} className={classes.avatar} />
+        </Grid>
+        <Grid item container>
+          <Grid item container direction="column" lg>
+            <Grid item>
+              <img src={yearbook} alt="yearbook" />
+            </Grid>
+            <Grid item>
+              <Typography variant="caption">
+                a page from my sophomore yearbook
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item lg style={{ maxWidth: "45em", padding: "1.25em" }}>
+            <Typography variant="body1" paragraph align="center">
+              Explore the far reaches of the galaxy with this space-themed dummy
+              text generator, with quotes from TV classics like Star Trek and
+              real astronauts themselves.
+            </Typography>
+            <Typography variant="body1" paragraph align="center">
+              A Gary Busey themed lorem ipsum generator to fill your project
+              with a never ending stream of “buseyisms,” quotes taken directly
+              from the actor's extensive filmography.
+            </Typography>
+          </Grid>
+          <Grid item container direction="column" lg alignItems="flex-end">
+            <Grid item>
+              <img src={puppy} alt="puppy" />
+            </Grid>
+            <Grid item>
+              <Typography variant="caption">
+                My miniature dapple dachshund, sterling
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
