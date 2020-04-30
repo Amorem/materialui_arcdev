@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
 import background from "../assets/background.jpg";
+import phoneIcon from "../assets/phone.svg";
+import emailIcon from "../assets/email.svg";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -23,7 +25,7 @@ export default function Contact(props) {
   const theme = useTheme();
   return (
     <Grid container direction="row">
-      <Grid item container direction="column" lg={3}>
+      <Grid item container direction="column" lg={3} justify="center">
         <Grid item>
           <Typography variant="h2" style={{ lineHeight: 1 }}>
             Contact Us
@@ -34,6 +36,36 @@ export default function Contact(props) {
           >
             We're waiting.
           </Typography>
+        </Grid>
+        <Grid item container>
+          <Grid item>
+            <img src={phoneIcon} alt="phone" style={{ marginRight: "0.5em" }} />
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
+            >
+              (555) 555-5555
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item container>
+          <Grid item>
+            <img
+              src={emailIcon}
+              alt="envelope"
+              style={{ marginRight: "0.5em", verticalAlign: "bottom" }}
+            />
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
+            >
+              hello@amorem.com
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
       <Grid item container className={classes.background} lg={9}></Grid>
