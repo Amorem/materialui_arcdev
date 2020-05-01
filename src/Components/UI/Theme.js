@@ -87,6 +87,10 @@ export default createMuiTheme({
       },
     },
     MuiInput: {
+      root: {
+        color: amoremGrey,
+        fontWeight: 300,
+      },
       underline: {
         "&:before": {
           borderBottom: `2px solid ${amoremBlue}`,
