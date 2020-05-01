@@ -79,4 +79,22 @@ export default createMuiTheme({
       color: amoremGrey,
     },
   },
+  overrides: {
+    MuiInputLabel: {
+      root: {
+        color: amoremBlue,
+        fontSize: "1rem",
+      },
+    },
+    MuiInput: {
+      underline: {
+        "&:before": {
+          borderBottom: `2px solid ${amoremBlue}`,
+        },
+        "&:hover:not($disabled):not($focused):not($error):before": {
+          borderBottom: `2px solid ${amoremBlue}`,
+        },
+      },
+    },
+  },
 });
