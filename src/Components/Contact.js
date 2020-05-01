@@ -278,6 +278,7 @@ export default function Contact(props) {
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
+        style={{ zIndex: 1302 }}
         PaperProps={{
           style: {
             paddingTop: matchesXS ? "1em" : "5em",
