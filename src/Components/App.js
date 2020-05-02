@@ -12,6 +12,7 @@ import Websites from "./Websites";
 import Revolution from "./Revolution";
 import About from "./About";
 import Contact from "./Contact";
+import Estimate from "./Estimate";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -66,7 +67,9 @@ function App() {
           <Route exact path="/contact">
             <Contact />
           </Route>
-          <Route exact path="/estimate" component={() => <div>Estimate</div>} />
+          <Route exact path="/estimate">
+            <Estimate />
+          </Route>{" "}
         </Switch>
         <Footer
           selectedIndex={selectedIndex}
