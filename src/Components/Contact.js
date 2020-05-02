@@ -137,7 +137,14 @@ export default function Contact(props) {
   const onConfirm = () => {
     setLoading(true);
     axios
-      .get("https://us-central1-materialuicourse.cloudfunctions.net/sendMail")
+      .get("https://us-central1-materialuicourse.cloudfunctions.net/sendMail", {
+        params: {
+          name,
+          phone,
+          email,
+          message,
+        },
+      })
       .then((res) => {
         setLoading(false);
         setOpen(false);
