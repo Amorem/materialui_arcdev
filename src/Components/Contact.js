@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -8,6 +9,8 @@ import TextField from "@material-ui/core/TextField";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Snackbar from "@material-ui/core/Snackbar";
 
 import ButtonArrow from "../Components/UI/ButtonArrow";
 import background from "../assets/background.jpg";
@@ -91,6 +94,14 @@ export default function Contact(props) {
 
   const [open, setOpen] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
+  const [alert, setAlert] = useState({
+    open: false,
+    message: "",
+    backgroundColor: "",
+  });
+
   const onChange = (event) => {
     let valid;
     switch (event.target.id) {
@@ -121,6 +132,33 @@ export default function Contact(props) {
       default:
         break;
     }
+  };
+
+  const onConfirm = () => {
+    setLoading(true);
+    axios
+      .get("https://us-central1-materialuicourse.cloudfunctions.net/sendMail")
+      .then((res) => {
+        setLoading(false);
+        setOpen(false);
+        setName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        setAlert({
+          open: true,
+          message: "Message sent successfully",
+          backgroundColor: "#4BB543",
+        });
+      })
+      .catch((error) => {
+        setLoading(false);
+        setAlert({
+          open: true,
+          message: "Something went wrong. Please try again",
+          backgroundColor: "#FF3232",
+        });
+      });
   };
 
   return (
@@ -369,17 +407,28 @@ export default function Contact(props) {
               </Button>
             </Grid>
             <Grid item>
+              {loading && <CircularProgress />}
               <Button
                 style={{ fontWeight: 400 }}
                 variant="contained"
                 color="primary"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  onConfirm();
+                }}
               >
                 Confirm
               </Button>
             </Grid>
           </Grid>
         </DialogContent>
+        <Snackbar
+          open={alert.open}
+          message={alert.message}
+          ContentProps={{ style: { backgroundColor: alert.backgroundColor } }}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          onClose={() => setAlert({ ...alert, open: false })}
+          autoHideDuration={4000}
+        />
       </Dialog>
       <Grid
         item
